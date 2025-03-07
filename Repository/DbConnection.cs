@@ -7,7 +7,7 @@ public class DbConnection : DbContext
 {
     static readonly string connectionString = "Server=localhost;User ID=root; Password=1234567;Database=bibliotecadb";
     public DbSet<Autor> Autor { get; set; }
-    public DbSet<Livro> Livros { get; set; }
+    public DbSet<Livro> Livro { get; set; }
     public DbSet<Usuario> Usuario { get; set; }
     public DbSet<Emprestimo> Emprestimo { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
