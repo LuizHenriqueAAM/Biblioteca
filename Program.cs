@@ -15,6 +15,5 @@ class Program
         app.Run();
         */
 
-        AutorRepository.DeleteAutor(AutorRepository.PesquisarAutorPorId(10));
     }
 }

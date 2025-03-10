@@ -38,6 +38,7 @@ public class LivroRepository
                 Console.WriteLine("ok");
                 antigo.Titulo = novoLivro.Titulo;
                 antigo.ISBN = novoLivro.ISBN;
+                antigo.QuantidadeDisponivel = novoLivro.QuantidadeDisponivel;
                 context.Livro.Update(antigo);
                 context.SaveChanges();
             }
