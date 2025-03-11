@@ -21,3 +21,4 @@ C:\Users\INFRARGM\Desktop\projetoReuniao\Biblioteca\obj\Debug\net9.0\Biblioteca.
 C:\Users\INFRARGM\Desktop\projetoReuniao\Biblioteca\obj\Debug\net9.0\ref\Biblioteca.dll
 C:\Users\INFRARGM\Desktop\projetoReuniao\Biblioteca\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\INFRARGM\Desktop\projetoReuniao\Biblioteca\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\INFRARGM\Desktop\projetoReuniao\Biblioteca\obj\Debug\net9.0\Biblioteca.sourcelink.json

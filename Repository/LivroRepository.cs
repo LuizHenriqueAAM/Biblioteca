@@ -9,8 +9,13 @@ public class LivroRepository
             context.Livro.Add(v);
             context.SaveChanges();
         }
-
-
+    }
+    public static List<Livro> ListaLivros()
+    {
+        using(var context = new DbConnection())
+        {
+            return context.Livro.ToList();
+        }
     }
     public static List<Livro> PesquisarLivroPorTitulo(string tituloLivro)
     {

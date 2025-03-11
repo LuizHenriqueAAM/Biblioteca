@@ -9,8 +9,6 @@ namespace Biblioteca{
                 context.Emprestimo.Add(emprestimo);
                 context.SaveChanges();
             }
-        }
-
-        
+        }        
     }
 }

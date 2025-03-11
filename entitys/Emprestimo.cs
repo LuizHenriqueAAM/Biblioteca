@@ -1,4 +1,5 @@
 using System.Data.Common;
+using Microsoft.AspNetCore.SignalR;
 
 public class Emprestimo
 {
@@ -8,5 +9,4 @@ public class Emprestimo
     public DateTime DataEmprestimo { get; set; }
     public DateTime DataDevoluçãoPrevista { get; set; }
     public DateTime DataDevoluçãoReal { get; set; }
-
 }
