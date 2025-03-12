@@ -11,11 +11,11 @@ namespace Biblioteca
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
             app.MapGet("/pesquisarlivro", LivroController.PesquisarLivro);
-            app.MapGet("/Livros", LivroController.ListaDeLivros);
-            app.MapPut("/LivrosPut", LivroController.AtualizarLivro);
-
+            app.MapGet("/Livro", LivroController.ListaDeLivros);
+            app.MapPut("/Livro", LivroController.AtualizarLivro);
+            app.MapDelete("/Livro",LivroController.DeletarLivro);
+            app.MapPost("/Livro", LivroController.CriarLivro);
             app.Run();
         }
     }
 }
-

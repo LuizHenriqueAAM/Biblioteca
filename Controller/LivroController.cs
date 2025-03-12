@@ -7,6 +7,11 @@ namespace Biblioteca.Controller
 {
     public class LivroController 
     {
+        public static void CriarLivro(HttpContext contexto)
+        {
+            Livro? livro = JsonSerializer.Deserialize<Livro>(contexto.Request.BodyReader.AsStream());
+            LivroService.CriarLivro(livro!);
+        }
         //Isso aqui pesquisa o livro leo ID
         public static Livro PesquisarLivro(HttpContext contexto)
         {
@@ -23,6 +28,12 @@ namespace Biblioteca.Controller
         {
             Livro? novoLivro = await JsonSerializer.DeserializeAsync<Livro>(contexto.Request.BodyReader.AsStream());   
             await LivroService.AtualizarLivro(novoLivro!);
+        }
+        //Deleta um livro existente
+        public static void DeletarLivro(HttpContext contexto)
+        {
+            Livro? livroAlvo = JsonSerializer.Deserialize<Livro>(contexto.Request.BodyReader.AsStream());
+            LivroService.DeletarLivro(livroAlvo!);
         }
     }
 }
