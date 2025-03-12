@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http.Timeouts;
-
-namespace Biblioteca
+using Biblioteca.Repository;
+namespace Biblioteca.Services
 {
     public class LivroService 
     {
@@ -18,6 +18,11 @@ namespace Biblioteca
         public static void AtualizarLivro(Livro livro)
         {
             LivroRepository.AtualizarLivro(livro);
+        }
+
+        internal static void AtualizarLivro()
+        {
+            throw new NotImplementedException();
         }
     }
 }

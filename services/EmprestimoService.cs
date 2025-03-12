@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Biblioteca
+namespace Biblioteca.Services
 {
     class EmprestimoService
     {

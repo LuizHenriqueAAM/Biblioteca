@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
-
-namespace Biblioteca
+using Biblioteca.Services;
+namespace Biblioteca.Controller
 {
     public class LivroController 
     {

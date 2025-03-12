@@ -1,57 +1,58 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Biblioteca;
-
-class UsuarioRepository
+namespace Biblioteca.Repository
 {
-    public static void CriarUsuario(Usuario u)
+    class UsuarioRepository
     {
-        using (var context = new DbConnection())
+        public static void CriarUsuario(Usuario u)
         {
-            context.Usuario.Add(u);
-            context.SaveChanges();
-        }
-    }
-    public static List<Usuario> PesquisarUsuarioPorNome(string nomeUsuario)
-    {
-        using (var context = new DbConnection())
-        {
-            return context.Usuario.Where((u) => u.Nome == nomeUsuario).ToList();
-        }
-    }
-
-    public static Usuario PesquisarUsuarioPorId(int Id)
-    {
-        using (var context = new DbConnection())
-        {
-            return context.Usuario.Find(Id)!;
-        }
-    }
-
-    public static void AtualizarUsuario(Usuario novoUsuario)
-    {
-        using (var context = new DbConnection())
-        {
-            Usuario? antigo = context.Usuario.Find(novoUsuario.Id);
-            if (antigo != null)
+            using (var context = new DbConnection())
             {
-                Console.WriteLine("ok");
-                antigo.Nome = novoUsuario.Nome;
-                antigo.Email = novoUsuario.Email;            
-                context.Usuario.Update(antigo);
+                context.Usuario.Add(u);
                 context.SaveChanges();
             }
         }
-    }
-    public static void DeleteUsuario(Usuario Usuario)
-    {
-        using (var context = new DbConnection())
+        public static List<Usuario> PesquisarUsuarioPorNome(string nomeUsuario)
         {
-            Usuario? Alvo = context.Usuario.Find(Usuario.Id);
-            if (Alvo != null)
+            using (var context = new DbConnection())
             {
-                context.Usuario.Remove(Alvo);
-                context.SaveChanges();
+                return context.Usuario.Where((u) => u.Nome == nomeUsuario).ToList();
+            }
+        }
+
+        public static Usuario PesquisarUsuarioPorId(int Id)
+        {
+            using (var context = new DbConnection())
+            {
+                return context.Usuario.Find(Id)!;
+            }
+        }
+
+        public static void AtualizarUsuario(Usuario novoUsuario)
+        {
+            using (var context = new DbConnection())
+            {
+                Usuario? antigo = context.Usuario.Find(novoUsuario.Id);
+                if (antigo != null)
+                {
+                    Console.WriteLine("ok");
+                    antigo.Nome = novoUsuario.Nome;
+                    antigo.Email = novoUsuario.Email;
+                    context.Usuario.Update(antigo);
+                    context.SaveChanges();
+                }
+            }
+        }
+        public static void DeleteUsuario(Usuario Usuario)
+        {
+            using (var context = new DbConnection())
+            {
+                Usuario? Alvo = context.Usuario.Find(Usuario.Id);
+                if (Alvo != null)
+                {
+                    context.Usuario.Remove(Alvo);
+                    context.SaveChanges();
+                }
             }
         }
     }

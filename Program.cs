@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
-namespace Biblioteca;
-
-class Program
+using Biblioteca.Controller;
+namespace Biblioteca
 {
-    static void Main(string[] args)
+    class Program
     {
-        
-        var builder = WebApplication.CreateBuilder(args);
-        var app = builder.Build();
-        app.MapGet("/pesquisarlivro", LivroController.PesquisarLivro);
-        app.MapGet("/Livros", LivroController.ListaDeLivros);
+        static void Main(string[] args)
+        {
 
-        app.Run();
-        
+            var builder = WebApplication.CreateBuilder(args);
+            var app = builder.Build();
+            app.MapGet("/pesquisarlivro", LivroController.PesquisarLivro);
+            app.MapGet("/Livros", LivroController.ListaDeLivros);
 
+            app.Run();
+
+
+        }
     }
 }
+

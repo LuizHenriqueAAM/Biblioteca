@@ -2,24 +2,26 @@ using System;
 using System.Net.Security;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
-namespace Biblioteca;
-public class DbConnection : DbContext
+namespace Biblioteca.Repository
 {
-    static readonly string connectionString = "Server=localhost;User ID=root; Password=1234567;Database=bibliotecadb";
-    public DbSet<Autor> Autor { get; set; }
-    public DbSet<Livro> Livro { get; set; }
-    public DbSet<Usuario> Usuario { get; set; }
-    public DbSet<Emprestimo> Emprestimo { get; set; }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class DbConnection : DbContext
     {
-        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        static readonly string connectionString = "Server=localhost;User ID=root; Password=1234567;Database=bibliotecadb";
+        public DbSet<Autor> Autor { get; set; }
+        public DbSet<Livro> Livro { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Emprestimo> Emprestimo { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        }
+        /*
+        using (var context = new DbConnection())
+        {
+            Autor andrew = new(){Nome = "andrew", DataNascimento = DateTime.Now, Nacionalidade="brasil"};
+            context.Autor.Add(andrew);
+            context.SaveChanges();
+        }
+        */
     }
-    /*
-    using (var context = new DbConnection())
-    {
-        Autor andrew = new(){Nome = "andrew", DataNascimento = DateTime.Now, Nacionalidade="brasil"};
-        context.Autor.Add(andrew);
-        context.SaveChanges();
-    }
-    */
 }
