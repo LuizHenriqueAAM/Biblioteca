@@ -9,9 +9,6 @@ namespace Biblioteca{
                 context.Emprestimo.Add(emprestimo);
                 context.SaveChanges();
             }
-<<<<<<< HEAD
-        }        
-=======
         }
 
         public static Emprestimo PesquisarEmprestimoPorId(int Id)
@@ -52,6 +49,5 @@ namespace Biblioteca{
             }
         }
         
->>>>>>> 9a7b82c713a898e905a668caa0f85bffae20db9d
     }
 }
