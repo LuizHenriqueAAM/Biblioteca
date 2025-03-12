@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Repository{
     class EmprestimoRepository{
-
         public static void CriarEmprestimo(Emprestimo emprestimo){
             using(var context = new DbConnection())
             {
@@ -10,7 +9,6 @@ namespace Biblioteca.Repository{
                 context.SaveChanges();
             }
         }
-
         public static Emprestimo PesquisarEmprestimoPorId(int Id)
         {
             using (var context = new DbConnection())
@@ -18,7 +16,6 @@ namespace Biblioteca.Repository{
                 return context.Emprestimo.Find(Id)!;
             }
         }
-
         public static void AtualizarEmprestimo(Emprestimo novoEmprestimo)
         {
             using (var context = new DbConnection())

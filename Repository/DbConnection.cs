@@ -18,8 +18,8 @@ namespace Biblioteca.Repository
         /*
         using (var context = new DbConnection())
         {
-            Autor andrew = new(){Nome = "andrew", DataNascimento = DateTime.Now, Nacionalidade="brasil"};
-            context.Autor.Add(andrew);
+            Autor teste = new(){Nome = "teste", DataNascimento = DateTime.Now, Nacionalidade="brasil"};
+            context.Autor.Add(teste);
             context.SaveChanges();
         }
         */

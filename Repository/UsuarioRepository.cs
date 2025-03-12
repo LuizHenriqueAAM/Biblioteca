@@ -19,7 +19,6 @@ namespace Biblioteca.Repository
                 return context.Usuario.Where((u) => u.Nome == nomeUsuario).ToList();
             }
         }
-
         public static Usuario PesquisarUsuarioPorId(int Id)
         {
             using (var context = new DbConnection())
@@ -27,7 +26,6 @@ namespace Biblioteca.Repository
                 return context.Usuario.Find(Id)!;
             }
         }
-
         public static void AtualizarUsuario(Usuario novoUsuario)
         {
             using (var context = new DbConnection())

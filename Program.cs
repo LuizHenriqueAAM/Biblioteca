@@ -8,7 +8,6 @@ namespace Biblioteca
     {
         static void Main(string[] args)
         {
-
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
             app.MapGet("/pesquisarlivro", LivroController.PesquisarLivro);
@@ -16,8 +15,6 @@ namespace Biblioteca
             app.MapPut("/LivrosPut", LivroController.AtualizarLivro);
 
             app.Run();
-
-
         }
     }
 }

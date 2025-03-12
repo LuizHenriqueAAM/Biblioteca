@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Repository
 {
-
     public class LivroRepository
     {
         public static void CriarLivro(Livro v)
@@ -27,7 +26,6 @@ namespace Biblioteca.Repository
                 return context.Livro.Where((l) => l.Titulo == tituloLivro).ToList();
             }
         }
-
         public static Livro PesquisarLivroPorId(int Id)
         {
             using (var context = new DbConnection())
@@ -35,7 +33,6 @@ namespace Biblioteca.Repository
                 return context.Livro.Find(Id)!;
             }
         }
-
         public static async Task AtualizarLivro(Livro novoLivro)
         {
             using (var context = new DbConnection())
@@ -61,7 +58,6 @@ namespace Biblioteca.Repository
                 if (Alvo != null)
                 {
                     context.Livro.Remove(Alvo);
-                    
                 }
             }
         }

@@ -19,7 +19,6 @@ namespace Biblioteca.Repository
                 return context.Autor.Where((a) => a.Nome == nomeAutor).ToList();
             }
         }
-
         public static Autor PesquisarAutorPorId(int Id)
         {
             using (var context = new DbConnection())
