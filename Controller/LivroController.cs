@@ -21,11 +21,8 @@ namespace Biblioteca.Controller
         //Modifica um livro existente
         public static async Task AtualizarLivro(HttpContext contexto)
         {
-            
-            
-            Livro novoLivro = await JsonSerializer.DeserializeAsync<Livro>(contexto.Request.BodyReader.AsStream())!;
-            
-            await LivroService.AtualizarLivro(novoLivro);
+            Livro? novoLivro = await JsonSerializer.DeserializeAsync<Livro>(contexto.Request.BodyReader.AsStream());   
+            await LivroService.AtualizarLivro(novoLivro!);
         }
     }
 }
