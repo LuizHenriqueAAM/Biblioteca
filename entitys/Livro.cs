@@ -5,4 +5,6 @@ public class Livro
     public string? ISBN { get; set; }
     public int AnoPublicacao { get; set; }
     public int QuantidadeDisponivel { get; set; }
+
+    //public Autor? Autor {get; set;}
 }

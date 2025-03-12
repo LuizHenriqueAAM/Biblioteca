@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Biblioteca.Repository
 {
 
@@ -34,19 +36,20 @@ namespace Biblioteca.Repository
             }
         }
 
-        public static void AtualizarLivro(Livro novoLivro)
+        public static async Task AtualizarLivro(Livro novoLivro)
         {
             using (var context = new DbConnection())
             {
-                Livro? antigo = context.Livro.Find(novoLivro.Id);
+                Livro? antigo = await context.Livro.FirstOrDefaultAsync(L => L.Id == novoLivro.Id);
                 if (antigo != null)
                 {
-                    Console.WriteLine("ok");
+                    Console.WriteLine(novoLivro.Titulo);
                     antigo.Titulo = novoLivro.Titulo;
                     antigo.ISBN = novoLivro.ISBN;
                     antigo.QuantidadeDisponivel = novoLivro.QuantidadeDisponivel;
+                    //antigo.Autor = novoLivro.Autor;
                     context.Livro.Update(antigo);
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
                 }
             }
         }
@@ -58,7 +61,7 @@ namespace Biblioteca.Repository
                 if (Alvo != null)
                 {
                     context.Livro.Remove(Alvo);
-                    context.SaveChanges();
+                    
                 }
             }
         }

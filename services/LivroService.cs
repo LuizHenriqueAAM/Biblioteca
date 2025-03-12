@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http.Timeouts;
 using Biblioteca.Repository;
+using System.Threading.Tasks;
 namespace Biblioteca.Services
 {
     public class LivroService 
@@ -15,14 +16,9 @@ namespace Biblioteca.Services
             return LivroRepository.ListaLivros();
         }
 
-        public static void AtualizarLivro(Livro livro)
+        public static async Task AtualizarLivro(Livro livro)
         {
-            LivroRepository.AtualizarLivro(livro);
-        }
-
-        internal static void AtualizarLivro()
-        {
-            throw new NotImplementedException();
+            await LivroRepository.AtualizarLivro(livro);
         }
     }
 }

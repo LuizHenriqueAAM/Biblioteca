@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Http;
 using Biblioteca.Services;
+using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 namespace Biblioteca.Controller
 {
     public class LivroController 
@@ -16,9 +19,13 @@ namespace Biblioteca.Controller
             return LivroService.ListaDeLivros();
         }
         //Modifica um livro existente
-        public static void AtualizarLivro(HttpContext contexto)
+        public static async Task AtualizarLivro(HttpContext contexto)
         {
-            LivroService.AtualizarLivro();
+            
+            
+            Livro novoLivro = await JsonSerializer.DeserializeAsync<Livro>(contexto.Request.BodyReader.AsStream())!;
+            
+            await LivroService.AtualizarLivro(novoLivro);
         }
     }
 }
