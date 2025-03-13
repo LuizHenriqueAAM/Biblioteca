@@ -23,7 +23,7 @@ namespace Biblioteca.Repository
         {
             using (var context = new DbConnection())
             {
-                return context.Livro.Where((l) => l.Titulo == tituloLivro).ToList();
+                return context.Livro.Where((l) => l.titulo == tituloLivro).ToList();
             }
         }
         public static Livro PesquisarLivroPorId(int Id)
@@ -37,12 +37,12 @@ namespace Biblioteca.Repository
         {
             using (var context = new DbConnection())
             {
-                Livro? antigo = await context.Livro.FirstOrDefaultAsync(L => L.Id == novoLivro.Id);
+                Livro? antigo = await context.Livro.FirstOrDefaultAsync(L => L.id == novoLivro.id);
                 if (antigo != null)
                 {
-                    Console.WriteLine(novoLivro.Titulo);
-                    antigo.Titulo = novoLivro.Titulo;
-                    antigo.ISBN = novoLivro.ISBN;
+                    Console.WriteLine(novoLivro.titulo);
+                    antigo.titulo = novoLivro.titulo;
+                    antigo.isbn = novoLivro.isbn;
                     antigo.QuantidadeDisponivel = novoLivro.QuantidadeDisponivel;
                     //antigo.Autor = novoLivro.Autor;
                     context.Livro.Update(antigo);
@@ -54,11 +54,12 @@ namespace Biblioteca.Repository
         {
             using (var context = new DbConnection())
             {
-                Livro? Alvo = context.Livro.Find(livro.Id);
+                Livro? Alvo = context.Livro.Find(livro.id);
                 if (Alvo != null)
                 {
                     context.Livro.Remove(Alvo);
                 }
+                context.SaveChanges();
             }
         }
     }

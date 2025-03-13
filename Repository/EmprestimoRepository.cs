@@ -24,7 +24,7 @@ namespace Biblioteca.Repository{
                 if (antigo != null)
                 {
                     Console.WriteLine("ok");
-                    antigo.Livro!.Titulo = novoEmprestimo.Livro!.Titulo;
+                    antigo.Livro!.titulo = novoEmprestimo.Livro!.titulo;
                     antigo.Usuario!.Id = novoEmprestimo.Usuario!.Id;
                     antigo.DataEmprestimo = novoEmprestimo.DataEmprestimo;
                     antigo.DataDevoluçãoPrevista = novoEmprestimo.DataDevoluçãoPrevista;

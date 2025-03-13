@@ -10,7 +10,7 @@ namespace Biblioteca
         {
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
-            app.MapGet("/pesquisarlivro", LivroController.PesquisarLivro);
+            app.MapGet("/LivroPorId", LivroController.PesquisarLivroPorId);
             app.MapGet("/Livro", LivroController.ListaDeLivros);
             app.MapPut("/Livro", LivroController.AtualizarLivro);
             app.MapDelete("/Livro",LivroController.DeletarLivro);

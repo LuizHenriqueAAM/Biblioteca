@@ -12,8 +12,12 @@ namespace Biblioteca.Controller
             Livro? livro = JsonSerializer.Deserialize<Livro>(contexto.Request.BodyReader.AsStream());
             LivroService.CriarLivro(livro!);
         }
-        //Isso aqui pesquisa o livro leo ID
-        public static Livro PesquisarLivro(HttpContext contexto)
+        public static void PesquisarLivroPorTitulo(HttpContext contexto)
+        {
+            
+        }
+        //Isso aqui pesquisa o livro pelo ID
+        public static Livro PesquisarLivroPorId(HttpContext contexto)
         {
             var id = contexto.Request.Query.Where((q) => q.Key == "id").FirstOrDefault();
             return LivroService.PesquisarLivro(int.Parse(id.Value!));
